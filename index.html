@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cars apis.is</title>
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="carsController">
+
+	<h1>Icelandic licence plate info</h1>
+	<h3>Angular, using apis.is</h3>
+
+	<p>Searches: {{counter}}</p>
+	<form ng-submit="fetch()">
+		<input type="text" ng-model="carnumber" ng-keypress="">
+		
+	</form>
+	<button id="fetchbtn" ng-click="fetch()">Fetch car info</button>
+
+	<div class="results">
+		<table id="mytable">
+			<thead>
+				<tr>
+					<th>Color</th>
+					<th>Factory Nr</th>
+					<th>Next Check</th>
+					<th>NR</th>
+					<th>Pollution</th>
+					<th>Registered At</th>
+					<th>Registry Nr</th>
+					<th>Status</th>
+					<th>SubType</th>
+					<th>Type</th>
+					<th>Weight</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td ng-repeat="item in data track by $index">{{item}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div> <!-- End results -->
+
+	<ul>
+		<li ng-repeat="s in searched">{{s}}</li>
+	</ul>
+
+</div> <!-- End app -->
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
